@@ -23,21 +23,25 @@
     width?: number,
     radius?: number
   }
-  function calculateArea(
-    shape: string,
-    length: number,
-    width: number,
-    radius: number
-  ) {
+  
+  function calculateArea({
+    shape,
+    length,
+    width,
+    radius
+  }: IShape) {
     switch(shape) {
       case 'rectangle': {
-        return length * width;  
+        if(length && width) return length * width;  
+        break;
       }
       case 'circle': {
-        return Math.PI * radius * radius;
+        if (radius) return Math.PI * radius * radius;
+        break;
       }
       default: {
-        throw new Error('invalid type of shape')
+        throw new Error('invalid type of shape');
+        break;
       }
     }
   } 
@@ -52,15 +56,15 @@
 
   // EX - 3
   //No es necesario aumentar codigo en este ejercicio
-  function validateEmail(email: string): boolean {
-    //...some code for validate here
-    return false;
-  }
-
-  function validateUsername(username: string): boolean {
-    //...some code for validate here
-    return false;
-  }
+  //function validateEmail(email: string): boolean {
+  //  //...some code for validate here
+  //  return false;
+  //}
+//
+  //function validateUsername(username: string): boolean {
+  //  //...some code for validate here
+  //  return false;
+  //}
 
   function validate() {
     //...some code for validate here
